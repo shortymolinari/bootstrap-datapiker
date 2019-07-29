@@ -1,1 +1,75 @@
-<!doctype html><html lang="en"><head>    <meta charset="UTF-8">    <meta name="viewport"          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">    <meta http-equiv="X-UA-Compatible" content="ie=edge">    <title>Bootstrap Datapiker</title>    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">    <link href="https://unpkg.com/bootstrap-datepicker@1.9.0/dist/css/bootstrap-datepicker3.min.css" rel="stylesheet"></head><body>    <div class="row mt-4 px-4">        <div class="col-4">            <div class="form-group date">                <label for="valid_date">Día de entrega:</label>                <input id="valid_date" name="valid_date" type="text" class="form-control" value="02-16-2012">            </div>            <div class="form-group date">                <label for="client_date">Fecha de entrega:</label>                <input id="client_date" name="client_date" type="text" class="form-control" value="02-16-2012">            </div>        </div>    </div></body><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script><script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script><script src="https://unpkg.com/bootstrap-datepicker@1.9.0/dist/js/bootstrap-datepicker.min.js"></script><script>    $(document).ready(function() {        //D => 0 , L => 1, M => 2 , M => 3, J => 4, V =>  5, S => 6        let clientDeliveryDays = [];        clientDeliveryDays[0] = 'N';        clientDeliveryDays[1] = 'Y';        clientDeliveryDays[2] = 'N';        clientDeliveryDays[3] = 'Y';        clientDeliveryDays[4] = 'N';        clientDeliveryDays[5] = 'Y';        clientDeliveryDays[6] = 'N';        console.log(clientDeliveryDays);        function setDeliveryDay(propertyList) {            let days = [];            // for (let i = 0; i < propertyList.length; i++) {            //     if (propertyList[i] == 'N') {            //         days.push(i);            //     }            // }            propertyList.forEach((value, index) => {                if (value == 'N') {                    days.push(index);                }            });            return days;        }        days = setDeliveryDay(clientDeliveryDays);        $('#valid_date').datepicker({            //daysOfWeekDisabled: "[0, 3, 6]"            daysOfWeekDisabled: days        });        $('#client_date').datepicker({            daysOfWeekDisabled: "0"        });    });</script></html>
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Bootstrap Datapiker</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://unpkg.com/bootstrap-datepicker@1.9.0/dist/css/bootstrap-datepicker3.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="row mt-4 px-4">
+        <div class="col-4">
+            <div class="form-group date">
+                <label for="valid_date">Día de entrega:</label>
+                <input id="valid_date" name="valid_date" type="text" class="form-control" value="02-16-2012">
+            </div>
+
+            <div class="form-group date">
+                <label for="client_date">Fecha de entrega:</label>
+                <input id="client_date" name="client_date" type="text" class="form-control" value="02-16-2012">
+            </div>
+        </div>
+    </div>
+
+
+
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/bootstrap-datepicker@1.9.0/dist/js/bootstrap-datepicker.min.js"></script>
+<script>
+    $(document).ready(function() {
+        //D => 0 , L => 1, M => 2 , M => 3, J => 4, V =>  5, S => 6
+        let clientDeliveryDays = [];
+        clientDeliveryDays[0] = 'N';
+        clientDeliveryDays[1] = 'Y';
+        clientDeliveryDays[2] = 'N';
+        clientDeliveryDays[3] = 'Y';
+        clientDeliveryDays[4] = 'N';
+        clientDeliveryDays[5] = 'Y';
+        clientDeliveryDays[6] = 'N';
+
+        //console.log(clientDeliveryDays);
+
+        function setDeliveryDay(propertyList) {
+            let days = [];
+            // for (let i = 0; i < propertyList.length; i++) {
+            //     if (propertyList[i] == 'N') {
+            //         days.push(i);
+            //     }
+            // }
+            propertyList.forEach((value, index) => {
+                if (value == 'N') {
+                    days.push(index);
+                }
+            });
+            return days;
+        }
+
+        days = setDeliveryDay(clientDeliveryDays);
+
+        $('#valid_date').datepicker({
+            //daysOfWeekDisabled: "[0, 3, 6]"
+            daysOfWeekDisabled: days
+        });
+
+        $('#client_date').datepicker({
+            daysOfWeekDisabled: "0"
+        });
+    });
+</script>
+</html>
